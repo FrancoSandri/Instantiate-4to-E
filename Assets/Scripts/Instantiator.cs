@@ -9,7 +9,9 @@ public class Instantiator : MonoBehaviour
 
     public GameObject objectToClone;
 
-    public int cloneAmount;
+    int cloneAmount;
+
+    GameObject clon;
 
     public void MultiInstantiate()
     {
@@ -17,11 +19,10 @@ public class Instantiator : MonoBehaviour
         {
             cloneAmount = int.Parse(txtUserCloneAmount.text);
         }
-        int counter = 0;
-        while (counter < cloneAmount)
+        for(int i = 0; i < cloneAmount; i++) 
         {
-            Instantiate(objectToClone);
-            counter++;
+            clon = Instantiate(objectToClone);
+            Destroy(clon, 2);
         }
     }
 }
